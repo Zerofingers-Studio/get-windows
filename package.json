@@ -13,7 +13,7 @@
 		"email": "sindresorhus@gmail.com",
 		"url": "https://sindresorhus.com"
 	},
-	"type": "module",
+	"type": "commonjs",
 	"exports": {
 		"types": "./index.d.ts",
 		"default": "./index.js"
@@ -36,11 +36,11 @@
 	"scripts": {
 		"test": "xo && npm run build:macos && ava && tsd",
 		"test-ci": "xo && tsd",
-		"build:windows:install": "node-pre-gyp install --fallback-to-build",
+		"build:windows:install": "node-pre-gyp install --build-from-source",
 		"build:windows": "node-pre-gyp build",
 		"build:windows:debug": "node-pre-gyp build --debug",
 		"build:macos": "swift build --configuration=release --arch arm64 --arch x86_64 && mv .build/apple/Products/Release/get-windows main",
-		"install": "node-pre-gyp install --fallback-to-build"
+		"install": "node-pre-gyp install --build-from-source"
 	},
 	"files": [
 		"index.js",
@@ -97,6 +97,11 @@
 	"peerDependenciesMeta": {
 		"node-gyp": {
 			"optional": true
+		}
+	},
+	"xo": {
+		"rules": {
+			"unicorn/prefer-module": 0
 		}
 	}
 }

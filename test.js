@@ -1,11 +1,11 @@
-import {inspect} from 'node:util';
-import test from 'ava';
-import {
+const {inspect} = require('node:util');
+const test = require('ava');
+const {
 	activeWindow,
 	activeWindowSync,
 	openWindows,
 	openWindowsSync,
-} from './index.js';
+} = require('./index.js');
 
 function asserter(t, result) {
 	t.log(inspect(result));
